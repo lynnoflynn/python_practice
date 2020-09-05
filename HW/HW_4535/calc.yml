@@ -1,0 +1,49 @@
+data:
+  add_data:
+      - [1,1,2]
+      - [1000,1000,2000]
+      - [1,-1,0]
+      - [0.1,0.2,0.3]
+      - [0,0,1]
+  add_datatype:
+      - "int"
+      - "bigint"
+      - "negative"
+      - "float"
+      - "error"
+  sub_data:
+      - [2,1,1]
+      - [2000,1000,1000]
+      - [0,-1,1]
+      - [0.3,0.2,0.1]
+      - [0,0,1]
+  sub_datatype:
+      - "int"
+      - "bigint"
+      - "negative"
+      - "float"
+      - "error"
+  mul_data:
+      - [1,1,1]
+      - [1000,1000,1000000]
+      - [1,-1,-1]
+      - [0.1,0.2,0.02]
+      - [0,0,1]
+  mul_datatype:
+      - "int"
+      - "bigint"
+      - "negative"
+      - "float"
+      - "error"
+  div_data:
+      - [1,1,1]
+      - [1000,1000,1]
+      - [1,-1,-1]
+      - [1,0.1,10]
+      - [1,0,0]
+  div_datatype:
+      - "int"
+      - "bigint"
+      - "negative"
+      - "float"
+      - "error_denominator"
