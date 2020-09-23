@@ -1,5 +1,3 @@
-import json
-import pytest
 
 from HW.HW_6685.api.api_tag import Api_Tag
 #test cases: 1.业务接口逻辑拼接；2，单接口字段校验；3，断言
@@ -13,11 +11,13 @@ class TestTag():
         corpid = "wwa06955e5c907354a"
         corpsecret = "_8yRExPVFzRiQhR7amDTLURDjo1JNSjYLg3cWD2VJoI"
         self.tag.get_token(corpid,corpsecret)
-    #增加标签, 参数化
+    # 参数化
     # @pytest.mark.parametrize(
     #     "corpid, corpsecret",
     #    [("wwa06955e5c907354a", "_8yRExPVFzRiQhR7amDTLURDjo1JNSjYLg3cWD2VJoI")]
     # )
+
+    # 增加标签
     def test_create_tag(self):
         #新建标签
         self.tag.create_tag('I_am_an_old_tag')

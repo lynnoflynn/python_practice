@@ -1,9 +1,8 @@
-import pytest
 
 from HW.HW_6685.api.base_api import BaseApi
 
 #企业微信独有的token需要放在url中进行传递,继承BaseApi,从而继承requests,jsonpath方法
-class WeWork_token(BaseApi):
+class WeWorkToken(BaseApi):
     def get_token(self,corpid,corpsecret):
         req = {
             "method":"get",

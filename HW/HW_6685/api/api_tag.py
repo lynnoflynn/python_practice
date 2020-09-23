@@ -1,11 +1,13 @@
-from HW.HW_6685.api.wework_token import WeWork_token
 
 
 #描述了创建标签，更新标签名字，删除标签 以及获取标签列表这些接口信息
 #单纯针对每个接口的信息进行描述，与业务逻辑无关
 # class Api_Tag继承class WeWork_token,从而获取token
 # class WeWork_token继承了class BaseApi，可以获取requests,jsonpath方法
-class Api_Tag(WeWork_token):
+from HW.HW_6685.api.wework_token import WeWorkToken
+
+
+class Api_Tag(WeWorkToken):
     #创建标签
     def create_tag(self,tag_name):
         #请求包体
@@ -16,7 +18,7 @@ class Api_Tag(WeWork_token):
         #请求方式和地址
         req = {
                 "method":"post",
-                "url":f"https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token{self.token}",
+                "url":f"https://qyapi.weixin.qq.com/cgi-bin/tag/create?access_token={self.token}",
                 "json": data
             }
         #用 class BaseApi 里面的方法
