@@ -20,24 +20,25 @@ class TestTag():
     # )
     def test_create_tag(self):
         #新建标签
-        self.tag.create_tag('i_am_an_old_tag')
+        self.tag.create_tag('I_am_an_old_tag')
         #获取标签列表
         list = self.tag.get_tag_members()
         print(list)
-        # tagname = self.tag.base_json_path(list,"$..taglist")
+        tagname = self.tag.base_json_path(list,"$..taglist")
+        print(tagname)
         #断言：新增的标签是否在标签列表里
-        # assert 'i_am_an_old_tag' in tagname
+        # assert 'I_am_an_old_tag' in tagname
 
     #修改标签
     def test_update_tag(self):
         # 更新标签
-        self.tag.update_tag(15,'i_am_a_new_tag')
+        self.tag.update_tag(15,'I_am_a_new_tag')
         # 获取标签列表
         list = self.tag.get_tag_members()
         print(list)
         # tagname = self.tag.base_json_path(list,"$..taglist")
         # 断言：新增的标签是否在标签列表里
-        # assert 'i_am_a_new_tag' in tagname
+        # assert 'I_am_a_new_tag' in tagname
 
     #删除标签
     def test_delete_tag(self):
