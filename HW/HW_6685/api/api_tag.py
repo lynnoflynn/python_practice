@@ -56,12 +56,43 @@ class Api_Tag(WeWorkToken):
         return r.json()
 
     #获取标签列表
-    def get_tag_members(self):
+    def get_tag_member_list(self):
         # 请求方式和地址
         req = {
                 "method": "get",
                 "url": f"https://qyapi.weixin.qq.com/cgi-bin/tag/list?access_token={self.token}"
             }
+        # 用 class BaseApi 里面的方法
+        r = self.base_send_requests(req)
+        # 返回json()数据
+        return r.json()
+
+    #增加标签成员
+    def add_tag_member(self,tag_id):
+        # 请求包体
+        data = {
+                "tagid": tag_id,
+                "userlist":[ "Harry","Ron"],
+                "partylist": [4]
+                 }
+        # 请求方式和地址
+        req = {
+            "method": "post",
+            "url": f"https://qyapi.weixin.qq.com/cgi-bin/tag/addtagusers?access_token={self.token}",
+            "json": data
+        }
+        # 用 class BaseApi 里面的方法
+        r = self.base_send_requests(req)
+        # 返回json()数据
+        return r.json()
+
+    # 获取标签成员
+    def get_tag_member(self,tag_id):
+        # 请求方式和地址
+        req = {
+            "method": "get",
+            "url": f"https://qyapi.weixin.qq.com/cgi-bin/tag/get?access_token={self.token}&tagid={tag_id}",
+        }
         # 用 class BaseApi 里面的方法
         r = self.base_send_requests(req)
         # 返回json()数据

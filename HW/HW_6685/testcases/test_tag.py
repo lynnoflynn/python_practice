@@ -22,36 +22,42 @@ class TestTag():
         #新建标签
         self.tag.create_tag('I_am_an_old_tag')
         #获取标签列表
-        list = self.tag.get_tag_members()
+        list = self.tag.get_tag_member_list()
         print(list)
-        tagname = self.tag.base_json_path(list,"$..taglist")
-        print(tagname)
+        tagname = self.tag.base_json_path(list,"$..tagname")
         #断言：新增的标签是否在标签列表里
-        # assert 'I_am_an_old_tag' in tagname
+        assert 'I_am_an_old_tag' in tagname
+
+    # 增加标签成员
+    def test_get_tag_list(self):
+        # 新建标签成员
+        self.tag.add_tag_member(12)
+        # 获取标签列表
+        list = self.tag.get_tag_member(12)
+        print(list)
+        name = self.tag.base_json_path(list, "$..name")
+        # 断言：新增的标签是否在标签列表里
+        assert 'Harry' in name
 
     #修改标签
     def test_update_tag(self):
         # 更新标签
-        self.tag.update_tag(15,'I_am_a_new_tag')
+        self.tag.update_tag(12,'I_am_a_new_tag')
         # 获取标签列表
-        list = self.tag.get_tag_members()
+        list = self.tag.get_tag_member_list()
         print(list)
-        # tagname = self.tag.base_json_path(list,"$..taglist")
+        tagname = self.tag.base_json_path(list,"$..tagname")
         # 断言：新增的标签是否在标签列表里
-        # assert 'I_am_a_new_tag' in tagname
+        assert 'I_am_a_new_tag' in tagname
 
     #删除标签
     def test_delete_tag(self):
         # 更新标签
         self.tag.delete_tag(12)
         # 获取标签列表
-        list = self.tag.get_tag_members()
+        list = self.tag.get_tag_member_list()
         print(list)
-        # tagid = self.tag.base_json_path(list,"$..tagid")
+        taglist = self.tag.base_json_path(list,"$..taglist")
         # 断言：新增的标签是否在标签列表里
-        # assert 12 not in tagid
+        assert 12 not in taglist
 
-    #获取标签列表
-    def test_get_tag_list(self):
-        r = self.tag.get_tag_members()
-        print(r)
