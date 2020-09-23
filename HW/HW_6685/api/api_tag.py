@@ -9,11 +9,11 @@ from HW.HW_6685.api.wework_token import WeWorkToken
 
 class Api_Tag(WeWorkToken):
     #创建标签
-    def create_tag(self,tag_name):
+    def create_tag(self,tag_name,tag_id):
         #请求包体
         data = {
                "tagname": tag_name,
-               "tagid": 12
+               "tagid": tag_id
             }
         #请求方式和地址
         req = {

@@ -1,3 +1,4 @@
+import pytest
 
 from HW.HW_6685.api.api_tag import Api_Tag
 #test cases: 1.业务接口逻辑拼接；2，单接口字段校验；3，断言
@@ -11,22 +12,22 @@ class TestTag():
         corpid = "wwa06955e5c907354a"
         corpsecret = "_8yRExPVFzRiQhR7amDTLURDjo1JNSjYLg3cWD2VJoI"
         self.tag.get_token(corpid,corpsecret)
-    # 参数化
-    # @pytest.mark.parametrize(
-    #     "corpid, corpsecret",
-    #    [("wwa06955e5c907354a", "_8yRExPVFzRiQhR7amDTLURDjo1JNSjYLg3cWD2VJoI")]
-    # )
 
+    # 参数化
+    @pytest.mark.parametrize("tagname, tagid",
+                           [("olg_tag1", "12"),
+                            ("olg_tag2","13"),
+                            ("olg_tag3","14")])
     # 增加标签
-    def test_create_tag(self):
+    def test_create_tag(self,tagname,tagid):
         #新建标签
-        self.tag.create_tag('I_am_an_old_tag')
+        self.tag.create_tag(tagname,tagid)
         #获取标签列表
         list = self.tag.get_tag_member_list()
         print(list)
         tagname = self.tag.base_json_path(list,"$..tagname")
         #断言：新增的标签是否在标签列表里
-        assert 'I_am_an_old_tag' in tagname
+        assert 'olg_tag1' in tagname
 
     # 增加标签成员
     def test_get_tag_list(self):
