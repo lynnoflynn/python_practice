@@ -11,7 +11,7 @@ def get_calc():
     print("获取计算机实例")
     calc = Calculator()
     return calc
-
+#定义路径最好使用 os.path
 #用fixture导入数据 加减乘除的数据和数据类型
 with open ("./calc.yml") as f:
     data = yaml.safe_load(f)["data"]
